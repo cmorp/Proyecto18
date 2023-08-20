@@ -168,11 +168,13 @@ const Formulario = () => {
                     </div>
 
                     <button className="btn btn-dark mt-3" type="submit" onSubmit={showSuccessAlert}>
-                        Registrarse
+                        REGISTRARSE
                     </button>
 
                     <div className="form-item">
-                        <button className="btn btn-dark mt-3">Iniciar Sesión</button>
+                        <a href="#">
+                            <button className="btn btn-dark mt-3">INICIAR SESIÓN</button>
+                        </a>
                     </div>
                 </form>
             </div>

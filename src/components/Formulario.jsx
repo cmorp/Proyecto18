@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import '../App.css'
-import AlertComponent from "./Alert"
+import Alert from "./Alert"
 
 
 const Formulario = () => {
@@ -10,37 +10,25 @@ const Formulario = () => {
     const [password, setPassword] = useState("");
     const [password2, setPassword2] = useState("");
     const [edad, setEdad] = useState("");
-    const [genero, setGenero] = useState("femenino");
-
+    const [genero, setGenero] = useState("");
 
     const [emailLog, setEmailLog] = useState("");
     const [passwordLog, setPasswordLog] = useState("");
 
     const [error, setError] = useState(false);
-    const [passwordError, setPasswordError] = useState(false);
+    const [errorPassword, setErrorPassword] = useState(false);
     const [errorEdad, setErrorEdad] = useState(false);
     const [errorLog, setErrorLog] = useState(false);
-    const [correoError, setErrorCorreo] = useState(false);
+    const [correoError, setErrorEmail] = useState(false);
 
 
-
-    const [alertMessage, setAlertMessage] = useState(false);
-    const handleLogin = (email, password) => {
-        if (email === "" || password === "") {
-            setAlertMessage("Login exitoso");
-            setAlertType("alert-primary");
-        } else {
-            setAlertMessage("Correo electrónico o contraseña incorrecta. Por favor, vuelve a intentarlo nuevamente.");
-            setAlertType("alert-danger");
-        }
-    }
 
     const validarDatos = (e) => {
         console.log(e)
-        e.preventDefault();
-        console.log(e)
+        e.preventDefault()
+
         if (nombre === "" || apellido === "" || email === "" || password === "" || password2 === "" || edad === "" || genero === "") {
-            setError(true);
+            setError(true)
             return;
         } else if (password != password2) {
             setPasswordError(true);
@@ -50,12 +38,8 @@ const Formulario = () => {
         } else if (edad < 18) {
             setErrorEdad(true);
             return;
-
-            // } else if (!(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email))) {
-            //     // obtenido de aca https://www.w3resource.com/javascript/form/email-validation.php
-            //     setErrorCorreo(true);
-            // return;
         }
+
         setError(false);
         setPasswordError(false);
         setErrorEdad(false);
@@ -68,9 +52,15 @@ const Formulario = () => {
     }
 
 
+    const validarEmail = (email) => {
+        const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+        return emailPattern.test(email);
+    }
 
-    const ValidarLog = (e) => {
-        e.preventDefault();
+
+    const validarLog = (e) => {
+        e.preventDefault()
+
         if (emailLog === "" || passwordLog === "") {
             setErrorLog(true);
             return;
@@ -82,17 +72,12 @@ const Formulario = () => {
 
     }
 
-    const MenssageLog = (e) => {
-        if (emailLog === "" || passwordLog === "") {
-            alert("Logeo Exitoso")
-            return;
-        }
-    }
 
     const showSuccessAlert = () => {
         setAlertMessage("¡REGISTRO EXITOSO!");
-
     }
+
+
 
     return (
         <>
@@ -101,9 +86,9 @@ const Formulario = () => {
                     {error ? <p className="error">¡Completa todos los campos!</p> : null}
                     {passwordError ? <p className="error">Contraseña incorrecta</p> : null}
                     {errorEdad ? <p className="error">Debes tener +18 años</p> : null}
-                    {correoError ? <p className="error">Formato mail incorrecto. Aseguráte que sea de la forma tucorreo@dominio</p> : null}
+                    {correoError ? <p className="error">Debes ingresar un email válido</p> : null}
 
-                    <div className="form-group">
+                    <div className="form-item">
                         <label for='nombre'>Nombre: </label>
                         <input
                             type="text"
@@ -114,7 +99,7 @@ const Formulario = () => {
                         />
                     </div>
 
-                    <div className="form-group">
+                    <div className="form-item">
                         <label for='apellido'>Apellido: </label>
                         <input
                             type="text"
@@ -125,7 +110,7 @@ const Formulario = () => {
                         />
                     </div>
 
-                    <div className="form-group">
+                    <div className="form-item">
                         <label for='email'>E-mail: </label>
                         <input
                             type="email"
@@ -136,7 +121,7 @@ const Formulario = () => {
                         />
                     </div>
 
-                    <div className="form-group">
+                    <div className="form-item">
                         <label for='edad'>Edad: </label>
                         <input
                             type="text"
@@ -147,24 +132,20 @@ const Formulario = () => {
                         />
                     </div>
 
-                    <div className="form-group">
-
+                    <div className="form-item">
                         <label>Selecciona tu género</label>
                         <br />
                         <select
                             onChange={(e) => setGenero(e.target.value)}
-                            value={genero} defaultValue={"femenino"}>
-
+                            value={genero} defaultValue={""}>
                             <option value={"femenino"}>Femenino</option>
                             <option value={"masculino"}>Masculino</option>
                             <option value={"no binario"}>No binario</option>
                             <option value={"otro"}>Prefiero no decir</option>
                         </select>
-
-
                     </div>
 
-                    <div className="form-group">
+                    <div className="form-item">
                         <label for='password'>Contraseña: </label>
                         <input
                             type="password"
@@ -175,7 +156,7 @@ const Formulario = () => {
                         />
                     </div>
 
-                    <div className="form-group">
+                    <div className="form-item">
                         <label for='password2'>Confirma tu contraseña: </label>
                         <input
                             type="password"
@@ -190,8 +171,7 @@ const Formulario = () => {
                         Registrarse
                     </button>
 
-                    <div className="form-group">
-
+                    <div className="form-item">
                         <button className="btn btn-dark mt-3">Iniciar Sesión</button>
                     </div>
                 </form>
@@ -200,4 +180,5 @@ const Formulario = () => {
     )
 }
 
-export default Formulario
+
+export default Formulario;

@@ -1,12 +1,12 @@
 import React from 'react'
 
-const AlertComponent = ({ alertMessage }) => {
+const Alert = ({ message }) => {
     return (
         <div className="bg-success text-light m-1 p-2 rounded-pill">
-            {alertMessage}
+            {message}
         </div>
     )
 }
 
 
-export default AlertComponent;
+export default Alert;

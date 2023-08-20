@@ -11,11 +11,11 @@ export default function Registro() {
     <>
       <h1>Crea una cuenta </h1>
       <br />
-
+      <div className='container'>
       <SocialButton nameicon={<BsGithub/>}/>
       <SocialButton nameicon={<BsFacebook/>}/>
       <SocialButton nameicon={<BsYoutube/>}/>
-   
+      </div>
       <br />
       <Formulario />
 

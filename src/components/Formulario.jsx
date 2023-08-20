@@ -16,7 +16,7 @@ const Formulario = () => {
     const [passwordLog, setPasswordLog] = useState("");
 
     const [error, setError] = useState(false);
-    const [errorPassword, setErrorPassword] = useState(false);
+    const [passwordError, setErrorPassword] = useState(false);
     const [errorEdad, setErrorEdad] = useState(false);
     const [errorLog, setErrorLog] = useState(false);
     const [correoError, setErrorEmail] = useState(false);
@@ -31,7 +31,7 @@ const Formulario = () => {
             setError(true)
             return;
         } else if (password != password2) {
-            setPasswordError(true);
+            setErrorPassword(true);
             setPassword("");
             setPassword2("");
             return;
@@ -41,7 +41,7 @@ const Formulario = () => {
         }
 
         setError(false);
-        setPasswordError(false);
+        setErrorPassword(false);
         setErrorEdad(false);
         setNombre("");
         setApellido("");
@@ -49,6 +49,7 @@ const Formulario = () => {
         setPassword("");
         setPassword2("");
         setEdad("");
+        setGenero("");
     }
 
 

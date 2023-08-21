@@ -10,22 +10,47 @@ const Formulario = () => {
     const [password, setPassword] = useState("");
     const [password2, setPassword2] = useState("");
     const [edad, setEdad] = useState("");
-    const [genero, setGenero] = useState("");
+    const [genero, setGenero] = useState("Femenino");
 
     const [emailLog, setEmailLog] = useState("");
     const [passwordLog, setPasswordLog] = useState("");
 
+    const [errorNombre, setErrorNombre] = useState(false);
+    const [errorApellido, setErrorApellido] = useState(false);
     const [error, setError] = useState(false);
     const [passwordError, setErrorPassword] = useState(false);
     const [errorEdad, setErrorEdad] = useState(false);
     const [errorLog, setErrorLog] = useState(false);
     const [correoError, setErrorEmail] = useState(false);
 
-
+    const regex = /^[a-zA-Z]+$/;
+    function validarCadena(input) {
+        return input !== '' && regex.test(input);
+    }
 
     const validarDatos = (e) => {
         console.log(e)
         e.preventDefault()
+        console.log(`Valida datos`)
+        if(!validarCadena(nombre)){
+            console.log(`Ta malo el nombre`)
+            setErrorNombre(true)
+            return;
+        }
+
+        if(!validarCadena(apellido)){
+            console.log(`Ta malo el apellido`)
+            setErrorApellido(true)
+            return;
+        }
+
+        if(isNaN(edad)){
+            console.log(`Edad tiene que ser numero`)
+            setErrorEdad(true)
+            return;
+        }
+
+
 
         if (nombre === "" || apellido === "" || email === "" || password === "" || password2 === "" || edad === "" || genero === "") {
             setError(true)
@@ -39,7 +64,10 @@ const Formulario = () => {
             setErrorEdad(true);
             return;
         }
-
+        
+        setErrorNombre(false)
+        setErrorApellido(false)
+        setErrorEdad(false)
         setError(false);
         setErrorPassword(false);
         setErrorEdad(false);
@@ -80,14 +108,19 @@ const Formulario = () => {
 
 
 
+
     return (
         <>
             <div>
                 <form className="formulario" onSubmit={validarDatos}>
+                    {errorNombre ? <p className="error">Nombre no válido</p> : null} 
+                    {errorApellido ? <p className="error">Apellido no válido</p> : null} 
                     {error ? <p className="error">¡Completa todos los campos!</p> : null}
                     {passwordError ? <p className="error">Contraseña incorrecta</p> : null}
-                    {errorEdad ? <p className="error">Debes tener +18 años</p> : null}
+                    {errorEdad ? <p className="error">Tienes que ingresar un numero o debes tener +18 años</p> : null}
                     {correoError ? <p className="error">Debes ingresar un email válido</p> : null}
+
+
 
                     <div className="form-item">
                         <label for='nombre'>Nombre: </label>
@@ -168,7 +201,7 @@ const Formulario = () => {
                         />
                     </div>
 
-                    <button className="btn btn-dark mt-3" type="submit" onSubmit={showSuccessAlert}>
+                    <button className="btn btn-dark mt-3 deleteme" type="submit" onSubmit={showSuccessAlert}>
                         REGISTRARSE
                     </button>
 

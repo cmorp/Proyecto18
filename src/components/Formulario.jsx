@@ -23,6 +23,7 @@ const Formulario = () => {
     const [errorLog, setErrorLog] = useState(false);
     const [correoError, setErrorEmail] = useState(false);
 
+
     const regex = /^[a-zA-Z]+$/;
     function validarCadena(input) {
         return input !== '' && regex.test(input);
@@ -43,14 +44,7 @@ const Formulario = () => {
             setErrorApellido(true)
             return;
         }
-
-        if(isNaN(edad)){
-            console.log(`Edad tiene que ser numero`)
-            setErrorEdad(true)
-            return;
-        }
-
-
+        
 
         if (nombre === "" || apellido === "" || email === "" || password === "" || password2 === "" || edad === "" || genero === "") {
             setError(true)
@@ -117,7 +111,7 @@ const Formulario = () => {
                     {errorApellido ? <p className="error">Apellido no válido</p> : null} 
                     {error ? <p className="error">¡Completa todos los campos!</p> : null}
                     {passwordError ? <p className="error">Contraseña incorrecta</p> : null}
-                    {errorEdad ? <p className="error">Tienes que ingresar un numero o debes tener +18 años</p> : null}
+                    {errorEdad ? <p className="error">Debes tener +18 años</p> : null}
                     {correoError ? <p className="error">Debes ingresar un email válido</p> : null}
 
 
@@ -158,7 +152,7 @@ const Formulario = () => {
                     <div className="form-item">
                         <label for='edad'>Edad: </label>
                         <input
-                            type="text"
+                            type="number"
                             name="edad"
                             className="form-control"
                             onChange={(e) => setEdad(e.target.value)}

@@ -1,7 +1,7 @@
 import React from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-import './socialButton.css';
+import './style.css';
 
 function SocialButton(prop) {
 

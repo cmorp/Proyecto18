@@ -49,7 +49,7 @@ const Login = () => {
             />
         </div>
 
-        <button className="btn btn-dark mt-3" onClick={() => {iniciarSesion}}>
+        <button className="btn btn-dark mt-3" type="submit"> 
             INICIAR SESIÓN
             </button>
 

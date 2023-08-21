@@ -3,7 +3,7 @@ import Alert from './Alert'
 import SocialButton from './SocialButton';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Formulario from './Formulario';
-import { BsGithub, BsYoutube, BsFacebook, BsLinkedin } from "react-icons/bs";
+import { BsGithub, BsFacebook, BsLinkedin } from "react-icons/bs";
 
 
 export default function Registro() {
@@ -13,8 +13,8 @@ export default function Registro() {
       <h1>Crea una cuenta </h1>
       <br />
       <div className='icon'>
-        <SocialButton nameicon={<BsGithub />} />
         <SocialButton nameicon={<BsFacebook />} />
+        <SocialButton nameicon={<BsGithub />} />
         <SocialButton nameicon={<BsLinkedin />} />
         </div>
       <br />

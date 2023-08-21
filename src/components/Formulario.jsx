@@ -44,7 +44,7 @@ const Formulario = () => {
             setErrorApellido(true)
             return;
         }
-        
+
 
         if (nombre === "" || apellido === "" || email === "" || password === "" || password2 === "" || edad === "" || genero === "") {
             setError(true)
@@ -102,7 +102,6 @@ const Formulario = () => {
 
 
 
-
     return (
         <>
             <div>
@@ -116,7 +115,7 @@ const Formulario = () => {
 
 
 
-                    <div className="form-item">
+                    <div className="form-group">
                         <label for='nombre'>Nombre: </label>
                         <input
                             type="text"
@@ -127,7 +126,7 @@ const Formulario = () => {
                         />
                     </div>
 
-                    <div className="form-item">
+                    <div className="form-group">
                         <label for='apellido'>Apellido: </label>
                         <input
                             type="text"
@@ -138,7 +137,7 @@ const Formulario = () => {
                         />
                     </div>
 
-                    <div className="form-item">
+                    <div className="form-group">
                         <label for='email'>E-mail: </label>
                         <input
                             type="email"
@@ -149,7 +148,7 @@ const Formulario = () => {
                         />
                     </div>
 
-                    <div className="form-item">
+                    <div className="form-group">
                         <label for='edad'>Edad: </label>
                         <input
                             type="number"
@@ -160,7 +159,7 @@ const Formulario = () => {
                         />
                     </div>
                     <br />
-                    <div className="form-item">
+                    <div className="form-group">
                         <label>Selecciona tu género</label>
                         <br />
                         <select
@@ -173,7 +172,7 @@ const Formulario = () => {
                         </select>
                     </div>
                     <br />
-                    <div className="form-item">
+                    <div className="form-group">
                         <label for='password'>Contraseña: </label>
                         <input
                             type="password"
@@ -184,7 +183,7 @@ const Formulario = () => {
                         />
                     </div>
 
-                    <div className="form-item">
+                    <div className="form-group">
                         <label for='password2'>Confirma tu contraseña: </label>
                         <input
                             type="password"

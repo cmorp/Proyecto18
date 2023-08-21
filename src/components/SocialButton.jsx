@@ -3,13 +3,13 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 import './socialButton.css';
 
-function SocialButton (prop) {
+function SocialButton(prop) {
 
-  return (
-    <div>
-      
-      <i >{prop.nameicon}</i>
-    </div>
-  )
+    return (
+        <div>
+
+            <i >{prop.nameicon}</i>
+        </div>
+    )
 }
 export default SocialButton;

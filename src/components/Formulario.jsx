@@ -165,7 +165,7 @@ const Formulario = () => {
                             value={edad}
                         />
                     </div>
-
+                    <br />
                     <div className="form-item">
                         <label>Selecciona tu género</label>
                         <br />
@@ -178,7 +178,7 @@ const Formulario = () => {
                             <option value={"otro"}>Prefiero no decir</option>
                         </select>
                     </div>
-
+                    <br />
                     <div className="form-item">
                         <label for='password'>Contraseña: </label>
                         <input
@@ -207,7 +207,7 @@ const Formulario = () => {
 
                     <div className="form-item">
                         <a href="#">
-                            <button className="btn btn-dark mt-3">INICIAR SESIÓN</button>
+                            <button className="btn btn-dark mt-3" type="submit">INICIAR SESIÓN</button>
                         </a>
                     </div>
                 </form>

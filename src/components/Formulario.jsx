@@ -34,7 +34,7 @@ const Formulario = () => {
             setError(true);
             return;
         } else if (password !== password2) {
-            setPasswordError(true);
+            setErrorPassword(true);
             return;
         } else if (edad < 18) {
             setErrorEdad(true);

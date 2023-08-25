@@ -46,7 +46,7 @@ const Login = () => {
                 name="passwordLog"
                 className="form-control"
                 onChange={(e) => setPasswordLog(e.target.value)}
-                value={passwordlog}
+                value={passwordLog}
             />
         </div>
 

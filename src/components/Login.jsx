@@ -35,7 +35,7 @@ const Login = () => {
                 name="emailLog"
                 className="form-control"
                 onChange={(e) => setEmailLog(e.target.value)}
-                value={emaillog}
+                value={emailLog}
             />
         </div>
 
